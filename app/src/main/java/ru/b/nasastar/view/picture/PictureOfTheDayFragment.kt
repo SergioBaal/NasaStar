@@ -121,8 +121,8 @@ class PictureOfTheDayFragment : Fragment() {
 
             override fun onSlide(bottomSheet: View, slideOffset: Float) {
                 Log.d("@@@", "$slideOffset")
-                binding.chipGroup.isVisible =
-                    slideOffset <= 0.75 // FIXME: пришлось сделать полу костыль, т.к. кнопки оставались видимые при открытии btmSheet
+              /*  binding.chipGroup.isVisible =
+                    slideOffset <= 0.75 // FIXME: пришлось сделать полу костыль, т.к. кнопки оставались видимые при открытии btmSheet */
 
             }
 

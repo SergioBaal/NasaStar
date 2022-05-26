@@ -39,9 +39,6 @@
         app:layout_constraintTop_toBottomOf="@id/inputLayout"
         app:srcCompat="@drawable/ic_no_photo_vector" />
 
-    <include
-        android:id="@+id/lifeHack"
-        layout="@layout/bottom_sheet_layout" />
 
 
     <com.google.android.material.chip.ChipGroup
@@ -68,6 +65,10 @@
             android:text="TDBY" />
     </com.google.android.material.chip.ChipGroup>
 
+    <include
+        android:id="@+id/lifeHack"
+        layout="@layout/bottom_sheet_layout" />
+
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/bottom_app_bar"
         android:layout_width="match_parent"
@@ -84,5 +85,7 @@
         android:backgroundTint="?colorOnPrimary"
         app:layout_anchor="@id/bottom_app_bar"
         app:srcCompat="@drawable/ic_plus_fab" />
+
+
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
