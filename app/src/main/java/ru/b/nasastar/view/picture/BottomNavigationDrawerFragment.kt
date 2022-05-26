@@ -2,7 +2,9 @@ package ru.b.nasastar.view.picture
 
 import android.os.Bundle
 import android.util.Log
-import android.view.*
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import ru.b.nasastar.R
 import ru.b.nasastar.databinding.BottomNavigationLayoutBinding
@@ -26,19 +28,17 @@ class BottomNavigationDrawerFragment : BottomSheetDialogFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.navigationView.setNavigationItemSelectedListener {
-            when(it.itemId){
-                R.id.navigation_one ->{
-                    Log.d("@@@","На экран 1")
+            when (it.itemId) {
+                R.id.navigation_one -> {
+                    Log.d("@@@", "На экран 1")
                 }
-                R.id.navigation_two ->{
-                    Log.d("@@@","На экран 2")
+                R.id.navigation_two -> {
+                    Log.d("@@@", "На экран 2")
                 }
             }
             true
         }
     }
-
-
 
 
     companion object {

@@ -98,7 +98,6 @@ class PictureOfTheDayFragment : Fragment() {
     }
 
 
-
     private fun initBottomSheetBehavior() {
         val bottomSheetBehavior = BottomSheetBehavior.from(binding.lifeHack.bottomSheetContainer)
         bottomSheetBehavior.state = BottomSheetBehavior.STATE_HALF_EXPANDED
@@ -165,7 +164,6 @@ class PictureOfTheDayFragment : Fragment() {
     }
 
 
-
     private fun workWithChipGroup() {
         binding.chipGroup.isSelectionRequired = true
         binding.chipGroup.check(1)
@@ -192,7 +190,7 @@ class PictureOfTheDayFragment : Fragment() {
         }
     }
 
-    private fun makeDate (minus:Int):String {
+    private fun makeDate(minus: Int): String {
         val dateFormat: DateFormat = SimpleDateFormat("yyyy-MM-dd")
         val cal = Calendar.getInstance()
         cal.add(Calendar.DATE, minus)
@@ -205,12 +203,13 @@ class PictureOfTheDayFragment : Fragment() {
             is PictureOfTheDayAppState.Error -> {}
             is PictureOfTheDayAppState.Loading -> {}
             is PictureOfTheDayAppState.Success -> {
-                binding.imageView.load(pictureOfTheDayAppState.pictureOfTheDayResponseData.hdurl){
+                binding.imageView.load(pictureOfTheDayAppState.pictureOfTheDayResponseData.hdurl) {
                     placeholder(R.drawable.ic_launcher_foreground)
                 }
                 binding.lifeHack.title.text =
                     pictureOfTheDayAppState.pictureOfTheDayResponseData.title
-                binding.lifeHack.explanation.text = pictureOfTheDayAppState.pictureOfTheDayResponseData.explanation
+                binding.lifeHack.explanation.text =
+                    pictureOfTheDayAppState.pictureOfTheDayResponseData.explanation
 
             }
         }

@@ -3,6 +3,7 @@ package ru.b.nasastar.utils
 import android.content.Context
 import android.util.AttributeSet
 import androidx.appcompat.widget.AppCompatImageView
+import ru.b.nasastar.repository.PictureOfTheDayResponseData
 
 class EquilateralImageView @JvmOverloads constructor(
     context: Context,
@@ -14,3 +15,9 @@ class EquilateralImageView @JvmOverloads constructor(
         super.onMeasure(widthMeasureSpec, widthMeasureSpec)
     }
 }
+
+fun convertDtoToString(pictureOfTheDayResponseData: PictureOfTheDayResponseData): String {
+    return pictureOfTheDayResponseData.date
+}
+
+

@@ -1,8 +1,11 @@
 package ru.b.nasastar.repository
 
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 data class PictureOfTheDayResponseData(
     val date: String,
     val explanation: String,
@@ -13,4 +16,7 @@ data class PictureOfTheDayResponseData(
     val serviceVersion: String,
     val title: String,
     val url: String
-)
+) : Parcelable
+
+
+
