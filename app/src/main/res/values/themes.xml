@@ -1,4 +1,4 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <!-- Base application theme. -->
     <style name="MyBaseTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
@@ -20,11 +20,13 @@
         <item name="colorOnTertiaryContainer">?superColorFirst</item>
 
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimary</item>
+        <item name="android:statusBarColor">?attr/colorPrimary</item>
         <!-- Customize your theme here. -->
         <item name="textInputStyle">@style/MyStyle</item>
         <item name="floatingActionButtonStyle">@style/MyStyleFloatingActionButton</item>
         <item name="chipStyle">@style/MyChipStyle</item>
+        <item name="tabStyle">@style/MyTabStyle</item>
+        <item name="textAppearanceBody2">@style/MyTextAppearance</item>
     </style>
 
     <style name="MyRedTheme" parent="MyBaseTheme">
@@ -41,7 +43,6 @@
         <item name="superColorFirst">@color/blue</item>
         <item name="superColorSecond">@color/orange</item>
     </style>
-
 
 
 </resources>

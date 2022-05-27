@@ -9,5 +9,8 @@
     <string name="search">Search</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="today">today</string>
+    <string name="yesterday">yesterday</string>/>
+    <string name="tdby">TDBY</string>
 
 </resources>

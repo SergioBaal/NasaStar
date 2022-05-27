@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <attr name="superColorFirst" format="reference"/>
-    <attr name="superColorSecond" format="reference"/>
+    <attr name="superColorFirst" format="reference" />
+    <attr name="superColorSecond" format="reference" />
 </resources>

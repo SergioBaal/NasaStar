@@ -6,17 +6,17 @@ import android.os.Bundle
 import android.util.Log
 import android.view.*
 import androidx.core.content.ContextCompat
-import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import coil.load
 import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.bottomsheet.BottomSheetBehavior
-import com.google.android.material.chip.Chip
+import com.google.android.material.tabs.TabLayout
 import ru.b.nasastar.R
 import ru.b.nasastar.databinding.FragmentPictureOfTheDayBinding
 import ru.b.nasastar.view.MainActivity
+import ru.b.nasastar.view.settings.SettingsFragment
 import ru.b.nasastar.viewmodel.PictureOfTheDayAppState
 import ru.b.nasastar.viewmodel.PictureOfTheDayViewModel
 import java.text.DateFormat
@@ -40,7 +40,7 @@ class PictureOfTheDayFragment : Fragment() {
         return binding.root
     }
 
-    private val viewModel: PictureOfTheDayViewModel by lazy {
+    val viewModel: PictureOfTheDayViewModel by lazy {
         ViewModelProvider(this).get(PictureOfTheDayViewModel::class.java)
     }
 
@@ -57,6 +57,9 @@ class PictureOfTheDayFragment : Fragment() {
             }
             R.id.app_bar_settings -> {
                 Log.d("@@@", "app_bar_settings")
+                requireActivity().supportFragmentManager.beginTransaction()
+                    .replace(R.id.container, SettingsFragment.newInstance()).addToBackStack("")
+                    .commit()
             }
             android.R.id.home -> {
                 BottomNavigationDrawerFragment.newInstance()
@@ -121,9 +124,6 @@ class PictureOfTheDayFragment : Fragment() {
 
             override fun onSlide(bottomSheet: View, slideOffset: Float) {
                 Log.d("@@@", "$slideOffset")
-              /*  binding.chipGroup.isVisible =
-                    slideOffset <= 0.75 // FIXME: пришлось сделать полу костыль, т.к. кнопки оставались видимые при открытии btmSheet */
-
             }
 
         })
@@ -165,32 +165,32 @@ class PictureOfTheDayFragment : Fragment() {
 
 
     private fun workWithChipGroup() {
-        binding.chipGroup.isSelectionRequired = true
-        binding.chipGroup.check(1)
-
-
-        binding.chipGroup.setOnCheckedChangeListener { group, position ->
-
-            when (position) {
-                1 -> {
-                    viewModel.sendRequest(makeDate(0))
-                }
-                2 -> {
-
-                    viewModel.sendRequest(makeDate(-1))
-                }
-                3 -> {
-
-                    viewModel.sendRequest(makeDate(-2))
+        binding.tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+            override fun onTabSelected(tab: TabLayout.Tab?) {
+                when (tab?.position) {
+                    0 -> {
+                        viewModel.sendRequest(makeDate(0))
+                    }
+                    1 -> {
+                        viewModel.sendRequest(makeDate(-1))
+                    }
+                    2 -> {
+                        viewModel.sendRequest(makeDate(-2))
+                    }
                 }
             }
-            group.findViewById<Chip>(position)?.let {
-                Log.d("@@@", "${it.text.toString()} $position")
+
+            override fun onTabUnselected(tab: TabLayout.Tab?) {
             }
-        }
+
+
+            override fun onTabReselected(tab: TabLayout.Tab?) {
+            }
+        })
     }
 
-    private fun makeDate(minus: Int): String {
+
+    fun makeDate(minus: Int): String {
         val dateFormat: DateFormat = SimpleDateFormat("yyyy-MM-dd")
         val cal = Calendar.getInstance()
         cal.add(Calendar.DATE, minus)

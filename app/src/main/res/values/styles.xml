@@ -2,8 +2,9 @@
 <resources>
 
     <style name="MyChipStyle" parent="Widget.MaterialComponents.Chip.Choice">
-
+        <item name="android:textAppearance">@style/ChipTextAppearance</item>
     </style>
+
     <style name="MyStyleFloatingActionButton" parent="Widget.MaterialComponents.FloatingActionButton">
         <item name="tint">?superColorFirst</item>
     </style>
@@ -13,6 +14,28 @@
         <item name="helperTextEnabled">false</item>
         <item name="counterEnabled">false</item>
         <item name="errorTextColor">#034AFF</item>
+    </style>
+
+    <style name="MyTabStyle" parent="Widget.MaterialComponents.TabLayout">
+        <item name="tabRippleColor">@drawable/my_ripple</item>
+        <item name="tabIndicatorAnimationDuration">500</item>
+    </style>
+
+
+    <style name="ChipTextAppearance" parent="TextAppearance.MaterialComponents.Body2">
+        <item name="fontFamily">@font/anonymous_pro</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textSize">16dp</item>
+        <item name="android:letterSpacing">0.2</item>
+    </style>
+
+    <style name="MyTextAppearance" parent="TextAppearance.MaterialComponents.Body2">
+        <item name="fontFamily">@font/anonymous_pro</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:letterSpacing">0.2</item>
     </style>
 
 </resources>
