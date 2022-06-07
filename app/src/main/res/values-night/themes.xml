@@ -1,9 +1,9 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="MyBaseTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="MyBaseNightTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="superColorFirst">@color/red</item>
-        <item name="superColorSecond">@color/white</item>
+        <item name="superColorFirst">@color/white</item>
+        <item name="superColorSecond">@color/red</item>
         <item name="android:navigationBarColor">?superColorFirst</item>
         <item name="colorPrimary">?superColorFirst</item>
         <item name="colorOnPrimary">?superColorSecond</item>
@@ -20,7 +20,7 @@
         <item name="colorOnTertiaryContainer">?superColorFirst</item>
 
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimary</item>
+        <item name="android:statusBarColor">?attr/colorPrimary</item>
         <!-- Customize your theme here. -->
         <item name="textInputStyle">@style/MyStyle</item>
         <item name="floatingActionButtonStyle">@style/MyStyleFloatingActionButton</item>
@@ -30,18 +30,18 @@
     </style>
 
     <style name="MyRedTheme" parent="MyBaseTheme">
-        <item name="superColorFirst">@color/red</item>
-        <item name="superColorSecond">@color/green</item>
+        <item name="superColorFirst">@color/green</item>
+        <item name="superColorSecond">@color/red</item>
     </style>
 
     <style name="MyGreenTheme" parent="MyBaseTheme">
-        <item name="superColorFirst">@color/green</item>
-        <item name="superColorSecond">@color/purple_200</item>
+        <item name="superColorFirst">@color/purple_200</item>
+        <item name="superColorSecond">@color/green</item>
     </style>
 
     <style name="MyBlueTheme" parent="MyBaseTheme">
-        <item name="superColorFirst">@color/blue</item>
-        <item name="superColorSecond">@color/orange</item>
+        <item name="superColorFirst">@color/orange</item>
+        <item name="superColorSecond">@color/blue</item>
     </style>
 
 

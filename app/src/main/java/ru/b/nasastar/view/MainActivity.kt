@@ -2,6 +2,8 @@ package ru.b.nasastar.view
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_YES
 import ru.b.nasastar.R
 import ru.b.nasastar.view.picture.PictureOfTheDayFragment
 
@@ -15,7 +17,8 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setTheme(getRealStyle(getCurrentTheme()))
+            setTheme(getRealStyle(getCurrentTheme()))
+
         setContentView(R.layout.activity_main)
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction().replace(
@@ -24,8 +27,6 @@ class MainActivity : AppCompatActivity() {
             ).commit()
         }
     }
-
-
 
 
     fun setCurrentTheme(currentTheme: Int) {
@@ -41,12 +42,14 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun getRealStyle(currentTheme: Int): Int {
-        return when (currentTheme) {
-            THEME_ONE -> R.style.MyGreenTheme
-            THEME_TWO -> R.style.MyRedTheme
-            THEME_THREE -> R.style.MyBlueTheme
-            else -> 0
+        if (android.os.Build.VERSION.SDK_INT >= 29) {
+        AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_YES)
         }
+            return when (currentTheme) {
+                THEME_ONE -> R.style.MyGreenTheme
+                THEME_TWO -> R.style.MyRedTheme
+                THEME_THREE -> R.style.MyBlueTheme
+                else -> 0
+            }
     }
-
 }
