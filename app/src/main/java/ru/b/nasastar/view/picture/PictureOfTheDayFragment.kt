@@ -50,7 +50,6 @@ class PictureOfTheDayFragment : Fragment() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-
         when (item.itemId) {
             R.id.app_bar_fav -> {
                 Log.d("@@@", "app_bar_fav")
@@ -67,8 +66,6 @@ class PictureOfTheDayFragment : Fragment() {
             }
         }
         return super.onOptionsItemSelected(item)
-
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -81,7 +78,7 @@ class PictureOfTheDayFragment : Fragment() {
         workWithWiki()
         initBottomSheetBehavior()
         initBottomAppBar()
-        workWithChipGroup()
+        workWithTabs()
     }
 
     private fun initViewModel() {
@@ -100,35 +97,29 @@ class PictureOfTheDayFragment : Fragment() {
         }
     }
 
-
     private fun initBottomSheetBehavior() {
         val bottomSheetBehavior = BottomSheetBehavior.from(binding.lifeHack.bottomSheetContainer)
-        bottomSheetBehavior.state = BottomSheetBehavior.STATE_HALF_EXPANDED
-        bottomSheetBehavior.isHideable = false
-        bottomSheetBehavior.addBottomSheetCallback(object :
-            BottomSheetBehavior.BottomSheetCallback() {
-            override fun onStateChanged(bottomSheet: View, newState: Int) {
-                when (newState) {
-                    BottomSheetBehavior.STATE_DRAGGING -> {}
-                    BottomSheetBehavior.STATE_COLLAPSED -> {}
-                    BottomSheetBehavior.STATE_EXPANDED -> {
-
-                    }
-                    BottomSheetBehavior.STATE_HALF_EXPANDED -> {}
-                    BottomSheetBehavior.STATE_HIDDEN -> {
-                    }
-                    BottomSheetBehavior.STATE_SETTLING -> {
+        with(bottomSheetBehavior) {
+            state = BottomSheetBehavior.STATE_HALF_EXPANDED
+            isHideable = false
+            addBottomSheetCallback(object :
+                BottomSheetBehavior.BottomSheetCallback() {
+                override fun onStateChanged(bottomSheet: View, newState: Int) {
+                    when (newState) {
+                        BottomSheetBehavior.STATE_DRAGGING -> {}
+                        BottomSheetBehavior.STATE_COLLAPSED -> {}
+                        BottomSheetBehavior.STATE_EXPANDED -> {}
+                        BottomSheetBehavior.STATE_HALF_EXPANDED -> {}
+                        BottomSheetBehavior.STATE_HIDDEN -> {}
+                        BottomSheetBehavior.STATE_SETTLING -> {}
                     }
                 }
-            }
-
-            override fun onSlide(bottomSheet: View, slideOffset: Float) {
-                Log.d("@@@", "$slideOffset")
-            }
-
-        })
+                override fun onSlide(bottomSheet: View, slideOffset: Float) {
+                    Log.d("@@@", "$slideOffset")
+                }
+            })
+        }
     }
-
 
     private fun initBottomAppBar() {
         (requireActivity() as MainActivity).setSupportActionBar(binding.bottomAppBar)
@@ -163,8 +154,7 @@ class PictureOfTheDayFragment : Fragment() {
         }
     }
 
-
-    private fun workWithChipGroup() {
+    private fun workWithTabs() {
         binding.tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab?) {
                 when (tab?.position) {
@@ -201,16 +191,17 @@ class PictureOfTheDayFragment : Fragment() {
     private fun renderData(pictureOfTheDayAppState: PictureOfTheDayAppState) {
         when (pictureOfTheDayAppState) {
             is PictureOfTheDayAppState.Error -> {}
-            is PictureOfTheDayAppState.Loading -> {}
+            is PictureOfTheDayAppState.Loading -> {
+                binding.imageView.load(R.drawable.progress_animation)
+            }
             is PictureOfTheDayAppState.Success -> {
                 binding.imageView.load(pictureOfTheDayAppState.pictureOfTheDayResponseData.hdurl) {
-                    placeholder(R.drawable.ic_launcher_foreground)
+                    placeholder(R.drawable.progress_animation)
                 }
                 binding.lifeHack.title.text =
                     pictureOfTheDayAppState.pictureOfTheDayResponseData.title
                 binding.lifeHack.explanation.text =
                     pictureOfTheDayAppState.pictureOfTheDayResponseData.explanation
-
             }
         }
     }

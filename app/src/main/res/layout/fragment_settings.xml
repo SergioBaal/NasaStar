@@ -13,45 +13,26 @@
         app:singleSelection="true">
 
         <com.google.android.material.chip.Chip
+            android:id="@+id/chipOne"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/today" />
+            android:text="@string/green" />
 
         <com.google.android.material.chip.Chip
+            android:id="@+id/chipTwo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/yesterday" />
+            android:text="@string/red" />
 
         <com.google.android.material.chip.Chip
+            android:id="@+id/chipThree"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/tdby" />
+            android:text="@string/blue" />
     </com.google.android.material.chip.ChipGroup>
 
 
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tabLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="?actionBarSize"
-            android:tag="one"
-            android:text="Меню 1" />
-
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="?actionBarSize"
-            android:tag="two"
-            android:text="Меню 2" />
-
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="?actionBarSize"
-            android:tag="three"
-            android:text="Меню 3" />
-    </com.google.android.material.tabs.TabLayout>
 
 
 </LinearLayout>

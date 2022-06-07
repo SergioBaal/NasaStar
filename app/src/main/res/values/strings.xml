@@ -12,5 +12,8 @@
     <string name="today">today</string>
     <string name="yesterday">yesterday</string>/>
     <string name="tdby">TDBY</string>
+    <string name="green">Зеленая</string>
+    <string name="red">Красная</string>
+    <string name="blue">Синяя</string>
 
 </resources>

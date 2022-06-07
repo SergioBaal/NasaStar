@@ -9,7 +9,7 @@
 
     <item
         android:id="@+id/app_bar__end"
-        android:icon="@android:drawable/btn_star_big_on"
+        android:icon="@android:drawable/ic_input_get"
         android:title="@string/settings"
         app:showAsAction="ifRoom" />
 
