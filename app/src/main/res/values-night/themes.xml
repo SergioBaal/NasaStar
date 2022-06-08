@@ -30,18 +30,18 @@
     </style>
 
     <style name="MyRedTheme" parent="MyBaseTheme">
-        <item name="superColorFirst">@color/green</item>
-        <item name="superColorSecond">@color/red</item>
-    </style>
-
-    <style name="MyGreenTheme" parent="MyBaseTheme">
-        <item name="superColorFirst">@color/purple_200</item>
+        <item name="superColorFirst">@color/red</item>
         <item name="superColorSecond">@color/green</item>
     </style>
 
+    <style name="MyGreenTheme" parent="MyBaseTheme">
+        <item name="superColorFirst">@color/green</item>
+        <item name="superColorSecond">@color/purple_200</item>
+    </style>
+
     <style name="MyBlueTheme" parent="MyBaseTheme">
-        <item name="superColorFirst">@color/orange</item>
-        <item name="superColorSecond">@color/blue</item>
+        <item name="superColorFirst">@color/blue</item>
+        <item name="superColorSecond">@color/orange</item>
     </style>
 
 
