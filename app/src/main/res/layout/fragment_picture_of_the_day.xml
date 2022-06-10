@@ -5,33 +5,31 @@
     android:layout_height="match_parent">
 
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/inputLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/search_wiki"
-        app:counterEnabled="true"
-        app:counterMaxLength="20"
-        app:endIconContentDescription="content_description_end_icon"
-        app:endIconDrawable="@drawable/ic_wikipedia"
-        app:endIconMode="custom"
-        app:helperText="@string/wiki_helper_text">
+<!--    <com.google.android.material.textfield.TextInputLayout-->
+<!--        android:id="@+id/inputLayout"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:hint="@string/search_wiki"-->
+<!--        app:counterEnabled="true"-->
+<!--        app:counterMaxLength="20"-->
+<!--        app:endIconContentDescription="content_description_end_icon"-->
+<!--        app:endIconDrawable="@drawable/ic_wikipedia"-->
+<!--        app:endIconMode="custom"-->
+<!--        app:helperText="@string/wiki_helper_text">-->
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/input_edit_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textPassword"
-            android:textSize="12dp"/>
-    </com.google.android.material.textfield.TextInputLayout>
+<!--        <com.google.android.material.textfield.TextInputEditText-->
+<!--            android:id="@+id/input_edit_text"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:inputType="textPassword"-->
+<!--            android:textSize="12dp"/>-->
+<!--    </com.google.android.material.textfield.TextInputLayout>-->
 
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="top"
-        app:layout_anchor="@id/imageView"
         app:layout_anchorGravity="top">
 
         <com.google.android.material.tabs.TabItem
@@ -58,7 +56,9 @@
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        app:layout_anchor="@id/tabLayout"
+        app:layout_anchorGravity="bottom"
+        android:layout_gravity="bottom"
         android:contentDescription="@string/photo_of_the_day_stub"
         android:scaleType="fitCenter"/>
 
@@ -66,22 +66,6 @@
         android:id="@+id/lifeHack"
         layout="@layout/bottom_sheet_layout" />
 
-    <com.google.android.material.bottomappbar.BottomAppBar
-        android:id="@+id/bottom_app_bar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        app:backgroundTint="?colorPrimary"
-        app:fabAlignmentMode="center"
-        app:navigationIcon="@drawable/ic_hamburger_menu_bottom_bar" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="?colorOnPrimary"
-        app:layout_anchor="@id/bottom_app_bar"
-        app:srcCompat="@drawable/ic_plus_fab" />
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -27,7 +27,7 @@ import java.util.*
 class PictureOfTheDayFragment : Fragment() {
 
 
-    var isMain = true
+
     private var _binding: FragmentPictureOfTheDayBinding? = null
     private val binding: FragmentPictureOfTheDayBinding
         get() = _binding!!
@@ -44,29 +44,6 @@ class PictureOfTheDayFragment : Fragment() {
         ViewModelProvider(this).get(PictureOfTheDayViewModel::class.java)
     }
 
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        super.onCreateOptionsMenu(menu, inflater)
-        inflater.inflate(R.menu.menu_bottom_bar, menu)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.app_bar_fav -> {
-                Log.d("@@@", "app_bar_fav")
-            }
-            R.id.app_bar_settings -> {
-                Log.d("@@@", "app_bar_settings")
-                requireActivity().supportFragmentManager.beginTransaction()
-                    .replace(R.id.container, SettingsFragment.newInstance()).addToBackStack("")
-                    .commit()
-            }
-            android.R.id.home -> {
-                BottomNavigationDrawerFragment.newInstance()
-                    .show(requireActivity().supportFragmentManager, "")
-            }
-        }
-        return super.onOptionsItemSelected(item)
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -75,9 +52,7 @@ class PictureOfTheDayFragment : Fragment() {
 
     private fun initView() {
         initViewModel()
-        workWithWiki()
         initBottomSheetBehavior()
-        initBottomAppBar()
         workWithTabs()
     }
 
@@ -88,14 +63,7 @@ class PictureOfTheDayFragment : Fragment() {
         viewModel.sendRequest(makeDate(0))
     }
 
-    private fun workWithWiki() {
-        binding.inputLayout.setEndIconOnClickListener {
-            startActivity(Intent(Intent.ACTION_VIEW).apply {
-                data =
-                    Uri.parse("https://en.wikipedia.org/wiki/${binding.inputEditText.text.toString()}")
-            })
-        }
-    }
+
 
     private fun initBottomSheetBehavior() {
         val bottomSheetBehavior = BottomSheetBehavior.from(binding.lifeHack.bottomSheetContainer)
@@ -121,38 +89,7 @@ class PictureOfTheDayFragment : Fragment() {
         }
     }
 
-    private fun initBottomAppBar() {
-        (requireActivity() as MainActivity).setSupportActionBar(binding.bottomAppBar)
-        setHasOptionsMenu(true)
 
-        binding.fab.setOnClickListener {
-            if (isMain) {
-                binding.bottomAppBar.navigationIcon = null
-                binding.bottomAppBar.fabAlignmentMode = BottomAppBar.FAB_ALIGNMENT_MODE_END
-                binding.fab.setImageDrawable(
-                    ContextCompat.getDrawable(
-                        requireContext(),
-                        R.drawable.ic_back_fab
-                    )
-                )
-                binding.bottomAppBar.replaceMenu(R.menu.menu_bottom_bar_mode_end)
-            } else {
-                binding.bottomAppBar.navigationIcon = (ContextCompat.getDrawable(
-                    requireContext(),
-                    R.drawable.ic_hamburger_menu_bottom_bar
-                ))
-                binding.bottomAppBar.fabAlignmentMode = BottomAppBar.FAB_ALIGNMENT_MODE_CENTER
-                binding.fab.setImageDrawable(
-                    ContextCompat.getDrawable(
-                        requireContext(),
-                        R.drawable.ic_plus_fab
-                    )
-                )
-                binding.bottomAppBar.replaceMenu(R.menu.menu_bottom_bar)
-            }
-            isMain = !isMain
-        }
-    }
 
     private fun workWithTabs() {
         binding.tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
@@ -180,7 +117,7 @@ class PictureOfTheDayFragment : Fragment() {
     }
 
 
-    fun makeDate(minus: Int): String {
+    private fun makeDate(minus: Int): String {
         val dateFormat: DateFormat = SimpleDateFormat("yyyy-MM-dd")
         val cal = Calendar.getInstance()
         cal.add(Calendar.DATE, minus)

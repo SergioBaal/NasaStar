@@ -10,24 +10,23 @@ import ru.b.nasastar.view.picture.PictureOfTheDayFragment
 const val THEME_ONE = 1
 const val THEME_TWO = 2
 const val THEME_THREE = 3
+private val KEY_SP = "sp"
+private val KEY_CURRENT_THEME = "current_theme"
 
 class MainActivity : AppCompatActivity() {
-    private val KEY_SP = "sp"
-    private val KEY_CURRENT_THEME = "current_theme"
+
+    lateinit var navigation: Navigation
+        private set
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-            setTheme(getRealStyle(getCurrentTheme()))
-
+        setTheme(getRealStyle(getCurrentTheme()))
         setContentView(R.layout.activity_main)
-        if (savedInstanceState == null) {
-            supportFragmentManager.beginTransaction().replace(
-                R.id.container,
-                PictureOfTheDayFragment.newInstance()
-            ).commit()
+        if (savedInstanceState==null) {
+            navigation = Navigation(supportFragmentManager)
+            navigation.showNavigationFragment(NavigationFragment.newInstance())
         }
     }
-
 
     fun setCurrentTheme(currentTheme: Int) {
         val sharedPreferences = getSharedPreferences(KEY_SP, MODE_PRIVATE)
@@ -42,9 +41,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun getRealStyle(currentTheme: Int): Int {
-        if (android.os.Build.VERSION.SDK_INT >= 29) {
-        AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_YES)
-        }
+
             return when (currentTheme) {
                 THEME_ONE -> R.style.MyGreenTheme
                 THEME_TWO -> R.style.MyRedTheme
