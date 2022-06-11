@@ -5,6 +5,13 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Переключить тему:"
+        android:textSize="25dp"/>
+
     <com.google.android.material.chip.ChipGroup
         android:id="@+id/settingsChipGroup"
         android:layout_width="wrap_content"
@@ -30,6 +37,24 @@
             android:layout_height="wrap_content"
             android:text="@string/blue" />
     </com.google.android.material.chip.ChipGroup>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ДЕНЬ/НОЧЬ:"
+            android:textSize="25dp"/>
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/switchTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+
 
 
 </LinearLayout>
