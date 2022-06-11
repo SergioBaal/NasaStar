@@ -1,6 +1,7 @@
 package ru.b.nasastar.repository
 
 import android.util.Log
+import com.example.nasaapp.model.data.EarthEpicServerResponseData
 import com.google.gson.GsonBuilder
 import retrofit2.Call
 import retrofit2.Callback
@@ -40,5 +41,12 @@ class PictureOfTheDayRetrofitImpl : PictureDetailed {
                     Log.d("@@@", "Ошибка: не получили ответ!")
                 }
             })
+    }
+
+    override fun getEPIC(
+        apiKey: String,
+        epicCallback: Callback<List<EarthEpicServerResponseData>>
+    ) {
+        pictureOfTheDay.getEPIC(apiKey).enqueue(epicCallback)
     }
 }

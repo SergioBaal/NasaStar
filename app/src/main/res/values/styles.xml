@@ -21,6 +21,12 @@
         <item name="tabIndicatorAnimationDuration">500</item>
     </style>
 
+    <style name="MyBottomNavigationView" parent="Widget.MaterialComponents.BottomNavigationView">
+        <item name="itemIconTint">@drawable/my_navigation_bar_item_tint</item>
+        <item name="itemTextColor">@drawable/my_navigation_bar_item_tint</item>
+        <item name="itemRippleColor">@drawable/my_ripple</item>
+        <item name="backgroundTint">@color/black</item>
+    </style>
 
 
     <style name="ChipTextAppearance" parent="TextAppearance.MaterialComponents.Body2">

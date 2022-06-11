@@ -1,22 +1,18 @@
 package ru.b.nasastar.view.picture
 
-import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.util.Log
-import android.view.*
-import androidx.core.content.ContextCompat
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import coil.load
-import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.tabs.TabLayout
 import ru.b.nasastar.R
 import ru.b.nasastar.databinding.FragmentPictureOfTheDayBinding
-import ru.b.nasastar.view.MainActivity
-import ru.b.nasastar.view.settings.SettingsFragment
 import ru.b.nasastar.viewmodel.PictureOfTheDayAppState
 import ru.b.nasastar.viewmodel.PictureOfTheDayViewModel
 import java.text.DateFormat
@@ -25,7 +21,6 @@ import java.util.*
 
 
 class PictureOfTheDayFragment : Fragment() {
-
 
 
     private var _binding: FragmentPictureOfTheDayBinding? = null
@@ -39,11 +34,9 @@ class PictureOfTheDayFragment : Fragment() {
         _binding = FragmentPictureOfTheDayBinding.inflate(inflater, container, false)
         return binding.root
     }
-
     val viewModel: PictureOfTheDayViewModel by lazy {
         ViewModelProvider(this).get(PictureOfTheDayViewModel::class.java)
     }
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -62,8 +55,6 @@ class PictureOfTheDayFragment : Fragment() {
         })
         viewModel.sendRequest(makeDate(0))
     }
-
-
 
     private fun initBottomSheetBehavior() {
         val bottomSheetBehavior = BottomSheetBehavior.from(binding.lifeHack.bottomSheetContainer)
@@ -89,8 +80,6 @@ class PictureOfTheDayFragment : Fragment() {
         }
     }
 
-
-
     private fun workWithTabs() {
         binding.tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab?) {
@@ -106,18 +95,15 @@ class PictureOfTheDayFragment : Fragment() {
                     }
                 }
             }
-
             override fun onTabUnselected(tab: TabLayout.Tab?) {
             }
-
 
             override fun onTabReselected(tab: TabLayout.Tab?) {
             }
         })
     }
 
-
-    private fun makeDate(minus: Int): String {
+    fun makeDate(minus: Int): String {
         val dateFormat: DateFormat = SimpleDateFormat("yyyy-MM-dd")
         val cal = Calendar.getInstance()
         cal.add(Calendar.DATE, minus)

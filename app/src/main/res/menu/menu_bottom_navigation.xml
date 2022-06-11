@@ -5,19 +5,19 @@
     <item
         android:id="@+id/action_photo"
         android:icon="@drawable/ic_earth"
-        android:title="ФОТО API"
+        android:title="@string/photoDay"
         app:showAsAction="always" />
 
     <item
         android:id="@+id/action_weather"
         android:icon="@drawable/ic_mars"
-        android:title="ПОГОДА API"
+        android:title="@string/photoEarth"
         app:showAsAction="always" />
 
     <item
         android:id="@+id/action_settings"
         android:icon="@drawable/ic_settings_menu"
-        android:title="НАСТРОЙКИ"
+        android:title="@string/settings"
         app:showAsAction="always" />
 
 </menu>

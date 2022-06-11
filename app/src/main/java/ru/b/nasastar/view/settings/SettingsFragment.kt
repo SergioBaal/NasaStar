@@ -2,12 +2,11 @@ package ru.b.nasastar.view.settings
 
 import android.content.Context
 import android.os.Bundle
-import android.view.*
-import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.google.android.material.chip.ChipGroup
-import com.google.android.material.tabs.TabLayout
 import ru.b.nasastar.R
 import ru.b.nasastar.databinding.FragmentSettingsBinding
 import ru.b.nasastar.view.MainActivity
@@ -17,7 +16,7 @@ import ru.b.nasastar.view.THEME_TWO
 
 
 class SettingsFragment : Fragment() {
-    private lateinit var parentActivity : MainActivity
+    private lateinit var parentActivity: MainActivity
     override fun onAttach(context: Context) {
         super.onAttach(context)
         parentActivity = requireActivity() as MainActivity
@@ -33,11 +32,6 @@ class SettingsFragment : Fragment() {
     ): View {
         _binding = FragmentSettingsBinding.inflate(inflater, container, false)
         return binding.root
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        super.onCreateOptionsMenu(menu, inflater)
-        inflater.inflate(R.menu.menu_bottom_bar, menu)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -66,8 +60,6 @@ class SettingsFragment : Fragment() {
                 }
             }
         }
-
-
     }
 
     companion object {

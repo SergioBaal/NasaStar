@@ -12,7 +12,7 @@ import ru.b.nasastar.view.picture.PictureOfTheDayFragment
 import ru.b.nasastar.view.settings.SettingsFragment
 
 
-class NavigationFragment: Fragment() {
+class NavigationFragment : Fragment() {
 
     lateinit var navigation: Navigation
 
@@ -40,15 +40,19 @@ class NavigationFragment: Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.navigationView.setOnItemSelectedListener {
             when (it.itemId) {
-               R.id.action_photo -> navigation.showFragment(PictureOfTheDayFragment.newInstance(),false)
-              //  R.id.action_weather -> navigation.showFragment(WeatherFragment.newInstance(),false)
-                R.id.action_settings -> navigation.showFragment(SettingsFragment.newInstance(), false)
+                R.id.action_photo ->
+                    navigation.showFragment(PictureOfTheDayFragment.newInstance(), false)
+                R.id.action_weather ->
+                    navigation.showFragment(EarthFragment.newInstance(), false)
+                R.id.action_settings ->
+                    navigation.showFragment(SettingsFragment.newInstance(), false)
             }
             true
         }
         binding.navigationView.selectedItemId = R.id.action_photo;
     }
-    companion object{
+
+    companion object {
         fun newInstance(): NavigationFragment {
             return NavigationFragment()
         }
