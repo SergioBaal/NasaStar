@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setTheme(getRealStyle(getCurrentTheme()))
         setContentView(R.layout.activity_main)
-        if (savedInstanceState==null) {
+        if (savedInstanceState == null) {
             navigation.showNavigationFragment(NavigationFragment.newInstance())
         }
     }

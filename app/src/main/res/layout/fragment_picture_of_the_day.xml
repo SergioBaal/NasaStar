@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
 
 
     <com.google.android.material.appbar.AppBarLayout
@@ -12,8 +10,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="top"
-        android:gravity="top"
-        android:fitsSystemWindows="true">
+        android:fitsSystemWindows="true"
+        android:gravity="top">
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
             android:id="@+id/toolbar_layout"
@@ -38,32 +36,33 @@
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                app:layout_collapseMode="pin"
-                android:background="@color/black">
-            <com.google.android.material.tabs.TabLayout
-                android:id="@+id/tabLayout"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleX="1.1">
+                android:background="@color/black"
+                app:layout_collapseMode="pin">
 
-                <com.google.android.material.tabs.TabItem
-                    android:layout_width="wrap_content"
-                    android:layout_height="?actionBarSize"
-                    android:tag="one"
-                    android:text="@string/today" />
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/tabLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleX="1.1">
 
-                <com.google.android.material.tabs.TabItem
-                    android:layout_width="wrap_content"
-                    android:layout_height="?actionBarSize"
-                    android:tag="two"
-                    android:text="@string/yesterday" />
+                    <com.google.android.material.tabs.TabItem
+                        android:layout_width="wrap_content"
+                        android:layout_height="?actionBarSize"
+                        android:tag="one"
+                        android:text="@string/today" />
 
-                <com.google.android.material.tabs.TabItem
-                    android:layout_width="wrap_content"
-                    android:layout_height="?actionBarSize"
-                    android:tag="three"
-                    android:text="@string/tdby" />
-            </com.google.android.material.tabs.TabLayout>
+                    <com.google.android.material.tabs.TabItem
+                        android:layout_width="wrap_content"
+                        android:layout_height="?actionBarSize"
+                        android:tag="two"
+                        android:text="@string/yesterday" />
+
+                    <com.google.android.material.tabs.TabItem
+                        android:layout_width="wrap_content"
+                        android:layout_height="?actionBarSize"
+                        android:tag="three"
+                        android:text="@string/tdby" />
+                </com.google.android.material.tabs.TabLayout>
 
             </androidx.appcompat.widget.Toolbar>
 
@@ -72,21 +71,19 @@
     </com.google.android.material.appbar.AppBarLayout>
 
 
-
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_behavior=".view.picture.behavior.NestedBehavior"
+        android:gravity="bottom"
         android:scrollbars="vertical"
-        android:gravity="bottom">
+        app:layout_behavior=".view.picture.behavior.NestedBehavior">
 
         <TextView
-            android:id="@id/text"
+            android:id="@+id/text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="1dp"
-            android:text="@string/large_text"
-            android:textSize="@dimen/description_text_size"/>
+            android:textSize="@dimen/description_text_size" />
 
     </androidx.core.widget.NestedScrollView>
 

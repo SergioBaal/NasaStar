@@ -63,9 +63,9 @@ class SettingsFragment : Fragment() {
         }
 
         binding.switchTheme.setOnCheckedChangeListener { view, isChecked ->
-            if(isChecked){
+            if (isChecked) {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-            }else{
+            } else {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
             }
         }

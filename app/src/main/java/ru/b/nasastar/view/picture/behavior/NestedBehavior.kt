@@ -2,11 +2,9 @@ package ru.b.nasastar.view.picture.behavior
 
 import android.content.Context
 import android.util.AttributeSet
-import android.util.Log
 import android.view.View
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import com.google.android.material.appbar.AppBarLayout
-import kotlin.math.abs
 
 class NestedBehavior(
     context: Context,
@@ -27,10 +25,10 @@ class NestedBehavior(
         child: View,
         dependency: View
     ): Boolean {
-        if(dependency is AppBarLayout){
-            val bar =  dependency as AppBarLayout
-            child.y = 0+bar.height.toFloat()+bar.y
-        }else{
+        if (dependency is AppBarLayout) {
+            val bar = dependency as AppBarLayout
+            child.y = 0 + bar.height.toFloat() + bar.y
+        } else {
 
         }
 

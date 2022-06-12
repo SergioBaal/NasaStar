@@ -1,7 +1,6 @@
 package ru.b.nasastar.view.picture
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,7 +8,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import coil.load
-import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.tabs.TabLayout
 import ru.b.nasastar.R
 import ru.b.nasastar.databinding.FragmentPictureOfTheDayBinding
@@ -34,6 +32,7 @@ class PictureOfTheDayFragment : Fragment() {
         _binding = FragmentPictureOfTheDayBinding.inflate(inflater, container, false)
         return binding.root
     }
+
     val viewModel: PictureOfTheDayViewModel by lazy {
         ViewModelProvider(this).get(PictureOfTheDayViewModel::class.java)
     }
@@ -45,7 +44,7 @@ class PictureOfTheDayFragment : Fragment() {
 
     private fun initView() {
         initViewModel()
-       // initBottomSheetBehavior()
+        // initBottomSheetBehavior()
         workWithTabs()
     }
 
@@ -96,6 +95,7 @@ class PictureOfTheDayFragment : Fragment() {
                     }
                 }
             }
+
             override fun onTabUnselected(tab: TabLayout.Tab?) {
             }
 
@@ -123,7 +123,8 @@ class PictureOfTheDayFragment : Fragment() {
                     placeholder(R.drawable.progress_animation)
                 }
 
-              binding.text.text =pictureOfTheDayAppState.pictureOfTheDayResponseData.explanation.toString()
+                binding.text.text =
+                    pictureOfTheDayAppState.pictureOfTheDayResponseData.explanation.toString()
 
             }
         }
