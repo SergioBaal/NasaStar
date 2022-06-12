@@ -4,4 +4,5 @@
     <dimen name="bottom_sheet_explanation_start_padding">10dp</dimen>
     <dimen name="bottom_sheet_title_end_padding">10dp</dimen>
     <dimen name="bottom_sheet_explanation_end_padding">10dp</dimen>
+    <dimen name="description_text_size">20sp</dimen>
 </resources>
