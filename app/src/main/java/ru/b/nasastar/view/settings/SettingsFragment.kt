@@ -10,10 +10,7 @@ import androidx.fragment.app.Fragment
 import com.google.android.material.chip.ChipGroup
 import ru.b.nasastar.R
 import ru.b.nasastar.databinding.FragmentSettingsBinding
-import ru.b.nasastar.view.MainActivity
-import ru.b.nasastar.view.THEME_ONE
-import ru.b.nasastar.view.THEME_THREE
-import ru.b.nasastar.view.THEME_TWO
+import ru.b.nasastar.view.*
 
 
 class SettingsFragment : Fragment() {

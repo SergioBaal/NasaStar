@@ -41,15 +41,15 @@ class NavigationFragment : Fragment() {
         binding.navigationView.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.action_photo ->
-                    navigation.showFragment(PictureOfTheDayFragment.newInstance(), false)
+                    navigation.showFragment(PictureOfTheDayFragment.newInstance(), true)
                 R.id.action_weather ->
-                    navigation.showFragment(EarthFragment.newInstance(), false)
+                    navigation.showFragment(EarthFragment.newInstance(), true)
                 R.id.action_settings ->
-                    navigation.showFragment(SettingsFragment.newInstance(), false)
+                    navigation.showFragment(SettingsFragment.newInstance(), true)
             }
             true
         }
-        binding.navigationView.selectedItemId = R.id.action_photo;
+        binding.navigationView.selectedItemId = R.id.action_photo
     }
 
     companion object {

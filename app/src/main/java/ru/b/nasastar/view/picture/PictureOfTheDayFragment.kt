@@ -4,9 +4,15 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.FrameLayout
+import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.transition.ChangeBounds
+import androidx.transition.ChangeImageTransform
+import androidx.transition.TransitionManager
+import androidx.transition.TransitionSet
 import coil.load
 import com.google.android.material.tabs.TabLayout
 import ru.b.nasastar.R
@@ -111,7 +117,7 @@ class PictureOfTheDayFragment : Fragment() {
         return dateFormat.format(cal.time)
     }
 
-
+    var isOpen: Boolean = false
     private fun renderData(pictureOfTheDayAppState: PictureOfTheDayAppState) {
         when (pictureOfTheDayAppState) {
             is PictureOfTheDayAppState.Error -> {}
@@ -122,10 +128,24 @@ class PictureOfTheDayFragment : Fragment() {
                 binding.imageView.load(pictureOfTheDayAppState.pictureOfTheDayResponseData.hdurl) {
                     placeholder(R.drawable.progress_animation)
                 }
-
+                binding.imageView.setOnClickListener {
+                    isOpen = !isOpen
+                    val transitionCB = ChangeBounds()
+                    val transitionImage = ChangeImageTransform()
+                    transitionCB.duration=3000
+                    transitionImage.duration=3000
+                    val transitionSet = TransitionSet()
+                    transitionSet.addTransition(transitionCB)
+                    transitionSet.addTransition(transitionImage)
+                    TransitionManager.beginDelayedTransition(binding.root,transitionSet)
+                    binding.imageView.scaleType =if(!isOpen){ImageView.ScaleType.CENTER}else{ImageView.ScaleType.CENTER_INSIDE}
+                    (binding.imageView.layoutParams as  FrameLayout.LayoutParams)
+                    val params = (binding.imageView.layoutParams as  FrameLayout.LayoutParams)
+                    params.height = if(isOpen){FrameLayout.LayoutParams.MATCH_PARENT}else{FrameLayout.LayoutParams.WRAP_CONTENT}
+                    binding.imageView.layoutParams = params
+                }
                 binding.text.text =
                     pictureOfTheDayAppState.pictureOfTheDayResponseData.explanation.toString()
-
             }
         }
     }
